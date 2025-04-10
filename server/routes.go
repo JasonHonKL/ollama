@@ -1438,7 +1438,6 @@ func (s *Server) PsHandler(c *gin.Context) {
 
 func (s *Server) ChatHandler(c *gin.Context) {
 	checkpointStart := time.Now()
-
 	var req api.ChatRequest
 	if err := c.ShouldBindJSON(&req); errors.Is(err, io.EOF) {
 		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"error": "missing request body"})
